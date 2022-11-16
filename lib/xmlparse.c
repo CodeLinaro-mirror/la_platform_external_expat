@@ -854,7 +854,15 @@ parserCreate(const XML_Char *encodingName,
   poolInit(&temp2Pool, &(parser->m_mem));
   parserInit(parser, encodingName);
 
-  if (encodingName && !protocolEncodingName) {
+  if (encodingName && ! parser->m_protocolEncodingName) {
+    if (dtd) {
+      // We need to stop the upcoming call to XML_ParserFree from happily
+      // destroying parser->m_dtd because the DTD is shared with the parent
+      // parser and the only guard that keeps XML_ParserFree from destroying
+      // parser->m_dtd is parser->m_isParamEntity but it will be set to
+      // XML_TRUE only later in XML_ExternalEntityParserCreate (or not at all).
+      parser->m_dtd = NULL;
+    }
     XML_ParserFree(parser);
     return NULL;
   }
