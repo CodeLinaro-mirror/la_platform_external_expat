@@ -23,7 +23,7 @@ third_party {
   identifier {
     type: "Git"
     value: "https://github.com/libexpat/libexpat/"
-    version: "436d5aa84b32fd2826c883ca543ddda6145d6a5a"
+    version: "f9a3eeb3e09fbea04b1c451ffc422ab2f1e45744"
     closest_version: "R_2_7_1"
   }
 }
