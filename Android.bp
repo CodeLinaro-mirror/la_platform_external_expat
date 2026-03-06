@@ -64,6 +64,7 @@ cc_library {
         // on aren't set, but our modifications to have one expat_config.h for
         // all targets rely on those defines.
         "-include stdio.h",
+        "-Wno-format",
     ],
 
     target: {
