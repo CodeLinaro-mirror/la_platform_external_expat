@@ -5,3 +5,4 @@
 fun:sip_tokey
 fun:sip_tobin
 fun:sip_round
+src:*siphash.h
